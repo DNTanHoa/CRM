@@ -17,6 +17,20 @@ namespace CRM.Models.ModelsConfiguration
                 .HasDefaultValue(DateTime.Now);
             builder.Property(x => x.UpdateDate)
                 .HasDefaultValue(DateTime.Now);
+
+            #region default data
+            builder.HasData(new CustomerType()
+            {
+                code = "1",
+                name = "Doanh nghiệp"
+            });
+
+            builder.HasData(new CustomerType()
+            {
+                code = "0",
+                name = "Cá nhân"
+            });
+            #endregion
         }
     }
 }

@@ -40,6 +40,16 @@ namespace CRM.Models
         public decimal exChangeRate { get; set; }
         public string currency { get; set; }
         public string currencyInText { get; set; }
-        public DateTime publishDate { get; set; }
+        public DateTime? publishDate { get; set; }
+
+        #region finance
+
+        public DateTime? accountinDate { get; set; }
+
+        #endregion
+
+        #region details
+        public ICollection<InvoiceDetail> details { get; set; }
+        #endregion
     }
 }

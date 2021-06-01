@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace CRM.Models
+namespace CRM.RequestModel
 {
-    public class Customer : BaseModel
+    public class CustomerCreateOrUpdateRequestModel
     {
         public string code { get; set; }
         public string name { get; set; }
@@ -18,13 +19,10 @@ namespace CRM.Models
         public string phone { get; set; }
         public string contactPerson { get; set; }
         public string RepresentPerson { get; set; }
-        public CustomerType customerType { get; set; }
-
-        #region personal customer
+        public string customerTypeCode { get; set; }
         public string identityNumber { get; set; }
         public string identityPlace { get; set; }
         public DateTime? idetityDate { get; set; }
         public DateTime? dateOfBirth { get; set; }
-        #endregion
     }
 }

@@ -4,6 +4,10 @@ using CRM.Models;
 using CRM.Models.Contexts;
 using CRM.Models.Inits;
 using CRM.Models.Repositories;
+using CRM.RequestModel;
+using CRM.Validators;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,6 +37,8 @@ namespace CRM
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddFluentValidation();
             
             services.AddDbContext<AppDbContext>();
             services.AddTransient<IDbInitializer, DbInitializer>();
@@ -40,9 +46,11 @@ namespace CRM
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new UserMappingProfile());
+                mc.AddProfile(new CustomerMappingProfile());
             });
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
+
 
             services.AddSwaggerGen(c =>
             {
@@ -74,7 +82,12 @@ namespace CRM
                 });
             });
 
-            services.AddTransient<IGenericRepository<User>, GenericRepository<User>>();
+            services.AddScoped<IGenericRepository<User>, GenericRepository<User>>();
+            services.AddScoped<IGenericRepository<Customer>, GenericRepository<Customer>>();
+            services.AddScoped<IGenericRepository<CustomerType>, GenericRepository<CustomerType>>();
+            services.AddScoped<ICustomerTypeRepository, CustomerTypeRepository>();
+
+            services.AddScoped<IValidator<CustomerCreateOrUpdateRequestModel>, CustomerRequestModelValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

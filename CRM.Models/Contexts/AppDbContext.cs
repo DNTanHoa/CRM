@@ -29,6 +29,8 @@ namespace CRM.Models.Contexts
 
         #region DbSet
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<CustomerType> CustomerType { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
