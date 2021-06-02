@@ -4,10 +4,11 @@ using System.Text;
 
 namespace CRM.Models
 {
-    public class InvoiceStatus : BaseModel
+    public class ItemCategory : BaseModel
     {
         public string code { get; set; }
         public string name { get; set; }
-        public bool allowEdit { get; set; }
+        public string note { get; set; }
+        public bool inUse { get; set; }
     }
 }
