@@ -31,6 +31,8 @@ namespace CRM.Models.Contexts
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<CustomerType> CustomerType { get; set; }
+        public virtual DbSet<InvoiceHeader> InvoiceHeaders { get; set; }
+        public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

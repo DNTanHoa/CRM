@@ -22,18 +22,21 @@ namespace CRM.Controllers
         private readonly ICustomerTypeRepository customerTypeRepository;
         private readonly IMapper mapper;
         private readonly IValidator<CustomerCreateOrUpdateRequestModel> requestValidator;
+        private readonly ICustomerRepository customerRepository;
         private readonly AppDbContext context;
 
         public CustomerController(IGenericRepository<Customer> genericCustomerRepository,
             ICustomerTypeRepository customerTypeRepository,
             IMapper mapper,
             IValidator<CustomerCreateOrUpdateRequestModel> requestValidator,
+            ICustomerRepository customerRepository,
             AppDbContext context)
         {
             this.genericCustomerRepository = genericCustomerRepository;
             this.customerTypeRepository = customerTypeRepository;
             this.mapper = mapper;
             this.requestValidator = requestValidator;
+            this.customerRepository = customerRepository;
             this.context = context;
         }
 
@@ -59,8 +62,8 @@ namespace CRM.Controllers
                 return new CommonApiResponeModel()
                 .SetResult(new CommonApiResult()
                 {
-                    messageCode = "N/A",
-                    message = "Nothing"
+                    messageCode = "success",
+                    message = "Get customer"
                 })
                 .SetData(customer);
             }
@@ -112,6 +115,68 @@ namespace CRM.Controllers
                             messageCode = "error",
                             message = "Invalid customer type"
                         });
+                }
+            }
+            return BadRequest();
+        }
+
+        [HttpPut]
+        public ActionResult<CommonApiResponeModel> UpdateCustomer(string customerCode,
+            CustomerCreateOrUpdateRequestModel requestModel)
+        {
+            if(string.IsNullOrEmpty(requestModel.code) ||
+               requestModel.code != customerCode)
+            {
+                return BadRequest();
+            }
+            else if (!customerRepository.IsExistCustomer(customerCode, 
+                out Customer exisCustomer))
+            {
+                return NotFound();
+            }
+            else
+            {
+                if(ModelState.IsValid)
+                {
+                    if (customerTypeRepository.IsExistCustomerType(requestModel.customerTypeCode,
+                        out CustomerType customerType))
+                    {
+                        var customer = mapper.Map<Customer>(requestModel);
+
+                        customer.customerType = customerType;
+                        genericCustomerRepository.Update(customer);
+
+                        var result = context.SaveChanges();
+
+                        if (result > 0)
+                        {
+                            return new CommonApiResponeModel()
+                            .SetResult(new CommonApiResult()
+                            {
+                                messageCode = "success",
+                                message = "Update customer successfully"
+                            })
+                            .SetData(customer);
+                        }
+                        else
+                        {
+                            return new CommonApiResponeModel()
+                            .SetResult(new CommonApiResult()
+                            {
+                                messageCode = "error",
+                                message = "Update failed"
+                            });
+                        }
+                    }
+                    else
+                    {
+                        return new CommonApiResponeModel()
+                            .SetResult(new CommonApiResult()
+                            {
+                                messageCode = "error",
+                                message = "Invalid customer type"
+                            });
+                    }
                 }
             }
             return BadRequest();

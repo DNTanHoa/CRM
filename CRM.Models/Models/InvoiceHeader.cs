@@ -10,6 +10,7 @@ namespace CRM.Models
         public string invoiceNo { get; set; }
         public string patern { get; set; }
         public string serial { get; set; }
+        public string description { get; set; }
         
         #region customer
         public string customerCode { get; set; }
@@ -44,7 +45,8 @@ namespace CRM.Models
 
         #region finance
 
-        public DateTime? accountinDate { get; set; }
+        public DateTime? accountingDate { get; set; }
+        public User accountingPerson { get; set; }
 
         #endregion
 

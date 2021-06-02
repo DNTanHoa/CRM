@@ -51,7 +51,6 @@ namespace CRM
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Vision", Version = "v1" });
@@ -85,7 +84,11 @@ namespace CRM
             services.AddScoped<IGenericRepository<User>, GenericRepository<User>>();
             services.AddScoped<IGenericRepository<Customer>, GenericRepository<Customer>>();
             services.AddScoped<IGenericRepository<CustomerType>, GenericRepository<CustomerType>>();
+            services.AddScoped<IGenericRepository<InvoiceHeader>, GenericRepository<InvoiceHeader>>();
+            services.AddScoped<IGenericRepository<InvoiceDetail>, GenericRepository<InvoiceDetail>>();
             services.AddScoped<ICustomerTypeRepository, CustomerTypeRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IInvoiceRepository, InvoiceRepository>();
 
             services.AddScoped<IValidator<CustomerCreateOrUpdateRequestModel>, CustomerRequestModelValidator>();
         }
