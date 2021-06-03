@@ -6,9 +6,9 @@ using System.Text;
 
 namespace CRM.Models.ModelsConfiguration
 {
-    public class GLCategoryConfiguration : IEntityTypeConfiguration<Company>
+    public class GLCategoryConfiguration : IEntityTypeConfiguration<GLCategory>
     {
-        public void Configure(EntityTypeBuilder<Company> builder)
+        public void Configure(EntityTypeBuilder<GLCategory> builder)
         {
             builder.HasKey(x => x.code);
             builder.Property(x => x.code)

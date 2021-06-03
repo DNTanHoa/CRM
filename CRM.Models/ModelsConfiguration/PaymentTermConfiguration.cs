@@ -6,13 +6,11 @@ using System.Text;
 
 namespace CRM.Models.ModelsConfiguration
 {
-    public class InvoiceTypeConfiguration : IEntityTypeConfiguration<InvoiceType>
+    public class PaymentTermConfiguration : IEntityTypeConfiguration<PaymentTerm>
     {
-        public void Configure(EntityTypeBuilder<InvoiceType> builder)
+        public void Configure(EntityTypeBuilder<PaymentTerm> builder)
         {
             builder.HasKey(x => x.code);
-            builder.Property(x => x.code)
-                .HasMaxLength(1000);
             builder.Property(x => x.name)
                 .HasMaxLength(1000);
             builder.Property(x => x.CreateDate)
