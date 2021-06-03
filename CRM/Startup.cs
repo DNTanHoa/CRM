@@ -36,7 +36,8 @@ namespace CRM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
 
             services.AddFluentValidation();
             
@@ -47,6 +48,7 @@ namespace CRM
             {
                 mc.AddProfile(new UserMappingProfile());
                 mc.AddProfile(new CustomerMappingProfile());
+                mc.AddProfile(new InvoiceMappingProfile());
             });
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
@@ -89,8 +91,10 @@ namespace CRM
             services.AddScoped<ICustomerTypeRepository, CustomerTypeRepository>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+            services.AddScoped<ISequenceNumberRepository, SequenceNumberRepository>();
 
             services.AddScoped<IValidator<CustomerCreateOrUpdateRequestModel>, CustomerRequestModelValidator>();
+            services.AddScoped<IValidator<InvoiceCreateOrUpdateRequestModel>, InvoiceRequestValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

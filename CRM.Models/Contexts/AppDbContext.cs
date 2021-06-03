@@ -37,6 +37,8 @@ namespace CRM.Models.Contexts
         public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
         public virtual DbSet<InvoiceStatus> InvoiceStatus { get; set; }
         public virtual DbSet<PaymentTerm> PaymentTerm { get; set; }
+        public virtual DbSet<PaymentMethod> PaymentMethod { get; set; }
+        public virtual DbSet<SequenceNumber> SequenceNumber { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -56,6 +58,7 @@ namespace CRM.Models.Contexts
             modelBuilder.ApplyConfiguration(new PaymentMethodConfiguration());
             modelBuilder.ApplyConfiguration(new PaymentStatusConfiguration());
             modelBuilder.ApplyConfiguration(new PaymentTermConfiguration());
+            modelBuilder.ApplyConfiguration(new SequenceNumberConfiguration());
             modelBuilder.ApplyConfiguration(new TaxTypeConfiguration());
             modelBuilder.ApplyConfiguration(new UnitConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());

@@ -7,6 +7,7 @@ namespace CRM.SharedUltilities.Global
 {
     public class AppGlobal
     {
+        public static string DefaultCode => DateTime.Now.ToString("yyyyMMddHHmmssfff");
         public static string TokenSecretKey
         {
             get

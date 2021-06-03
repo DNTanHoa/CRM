@@ -4,14 +4,16 @@ using CRM.Models.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CRM.Models.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210603150855_addSequenceNumber")]
+    partial class addSequenceNumber
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,7 +33,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 53, 963, DateTimeKind.Local).AddTicks(7375));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 623, DateTimeKind.Local).AddTicks(279));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -39,7 +41,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 53, 970, DateTimeKind.Local).AddTicks(8792));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 627, DateTimeKind.Local).AddTicks(2522));
 
                     b.Property<DateTime>("dateLocked")
                         .HasColumnType("datetime2");
@@ -78,7 +80,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 53, 983, DateTimeKind.Local).AddTicks(4183));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 633, DateTimeKind.Local).AddTicks(674));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -86,7 +88,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 53, 983, DateTimeKind.Local).AddTicks(5186));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 633, DateTimeKind.Local).AddTicks(1059));
 
                     b.Property<string>("address")
                         .HasMaxLength(1000)
@@ -178,7 +180,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 53, 988, DateTimeKind.Local).AddTicks(2455));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 635, DateTimeKind.Local).AddTicks(4159));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -186,7 +188,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 53, 988, DateTimeKind.Local).AddTicks(3163));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 635, DateTimeKind.Local).AddTicks(4558));
 
                     b.Property<bool>("getExchange")
                         .HasColumnType("bit");
@@ -216,7 +218,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 53, 990, DateTimeKind.Local).AddTicks(5411));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 636, DateTimeKind.Local).AddTicks(5057));
 
                     b.Property<string>("RepresentPerson")
                         .HasColumnType("nvarchar(max)");
@@ -227,7 +229,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 53, 990, DateTimeKind.Local).AddTicks(6138));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 636, DateTimeKind.Local).AddTicks(5402));
 
                     b.Property<string>("address")
                         .HasMaxLength(1000)
@@ -303,7 +305,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 52, DateTimeKind.Local).AddTicks(6928));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 668, DateTimeKind.Local).AddTicks(4992));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -311,7 +313,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 52, DateTimeKind.Local).AddTicks(7482));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 668, DateTimeKind.Local).AddTicks(5466));
 
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
@@ -352,7 +354,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 62, DateTimeKind.Local).AddTicks(7525));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 673, DateTimeKind.Local).AddTicks(1447));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -360,7 +362,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 62, DateTimeKind.Local).AddTicks(8104));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 673, DateTimeKind.Local).AddTicks(1863));
 
                     b.Property<decimal>("creditAmount")
                         .HasColumnType("decimal(18,2)");
@@ -402,7 +404,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 55, DateTimeKind.Local).AddTicks(9099));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 670, DateTimeKind.Local).AddTicks(5081));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -410,7 +412,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 55, DateTimeKind.Local).AddTicks(9705));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 670, DateTimeKind.Local).AddTicks(5495));
 
                     b.Property<string>("name")
                         .HasMaxLength(1000)
@@ -440,7 +442,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 66, DateTimeKind.Local).AddTicks(4430));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 675, DateTimeKind.Local).AddTicks(1850));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -448,13 +450,10 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 66, DateTimeKind.Local).AddTicks(5049));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 675, DateTimeKind.Local).AddTicks(2238));
 
-                    b.Property<string>("functionCode")
+                    b.Property<string>("functioncode")
                         .HasColumnType("nvarchar(1000)");
-
-                    b.Property<string>("functionName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("headercode")
                         .HasColumnType("nvarchar(450)");
@@ -474,14 +473,11 @@ namespace CRM.Models.Migrations
                     b.Property<decimal>("total")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("unitCode")
-                        .HasColumnType("nvarchar(1000)");
-
-                    b.Property<string>("unitName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("unitPrice")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("unitcode")
+                        .HasColumnType("nvarchar(1000)");
 
                     b.HasKey("id");
 
@@ -489,11 +485,11 @@ namespace CRM.Models.Migrations
 
                     b.HasIndex("UpdateByusername");
 
-                    b.HasIndex("functionCode");
+                    b.HasIndex("functioncode");
 
                     b.HasIndex("headercode");
 
-                    b.HasIndex("unitCode");
+                    b.HasIndex("unitcode");
 
                     b.ToTable("InvoiceDetails");
                 });
@@ -510,7 +506,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 75, DateTimeKind.Local).AddTicks(5879));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 676, DateTimeKind.Local).AddTicks(4493));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -518,7 +514,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 75, DateTimeKind.Local).AddTicks(6763));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 676, DateTimeKind.Local).AddTicks(4956));
 
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
@@ -543,7 +539,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 79, DateTimeKind.Local).AddTicks(4445));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 678, DateTimeKind.Local).AddTicks(6984));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -551,7 +547,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 79, DateTimeKind.Local).AddTicks(4980));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 678, DateTimeKind.Local).AddTicks(7404));
 
                     b.Property<DateTime?>("accountingDate")
                         .HasColumnType("datetime2");
@@ -699,7 +695,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 82, DateTimeKind.Local).AddTicks(1252));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 680, DateTimeKind.Local).AddTicks(3419));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -707,7 +703,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 82, DateTimeKind.Local).AddTicks(2436));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 680, DateTimeKind.Local).AddTicks(3778));
 
                     b.Property<bool>("allowEdit")
                         .HasColumnType("bit");
@@ -737,7 +733,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 85, DateTimeKind.Local).AddTicks(2485));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 682, DateTimeKind.Local).AddTicks(568));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -745,7 +741,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 85, DateTimeKind.Local).AddTicks(3005));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 682, DateTimeKind.Local).AddTicks(967));
 
                     b.Property<string>("name")
                         .HasMaxLength(1000)
@@ -775,7 +771,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 87, DateTimeKind.Local).AddTicks(9171));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 683, DateTimeKind.Local).AddTicks(7209));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -783,7 +779,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 87, DateTimeKind.Local).AddTicks(9886));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 683, DateTimeKind.Local).AddTicks(7617));
 
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
@@ -812,7 +808,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 91, DateTimeKind.Local).AddTicks(1347));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 685, DateTimeKind.Local).AddTicks(8772));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -820,7 +816,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 91, DateTimeKind.Local).AddTicks(1958));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 685, DateTimeKind.Local).AddTicks(9156));
 
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
@@ -848,7 +844,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 93, DateTimeKind.Local).AddTicks(8501));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 687, DateTimeKind.Local).AddTicks(4728));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -856,7 +852,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 93, DateTimeKind.Local).AddTicks(9146));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 687, DateTimeKind.Local).AddTicks(5157));
 
                     b.Property<string>("description")
                         .HasColumnType("nvarchar(max)");
@@ -889,7 +885,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 95, DateTimeKind.Local).AddTicks(9485));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 688, DateTimeKind.Local).AddTicks(9850));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -897,13 +893,10 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 96, DateTimeKind.Local).AddTicks(127));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 689, DateTimeKind.Local).AddTicks(185));
 
                     b.Property<string>("lastNumber")
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)")
-                        .HasDefaultValue("000000000");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("numberFrom")
                         .ValueGeneratedOnAdd()
@@ -962,7 +955,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 99, DateTimeKind.Local).AddTicks(9606));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 691, DateTimeKind.Local).AddTicks(3488));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -970,7 +963,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 100, DateTimeKind.Local).AddTicks(91));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 691, DateTimeKind.Local).AddTicks(3870));
 
                     b.Property<string>("description")
                         .HasColumnType("nvarchar(max)");
@@ -1002,7 +995,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 102, DateTimeKind.Local).AddTicks(3838));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 692, DateTimeKind.Local).AddTicks(5887));
 
                     b.Property<string>("UpdateByusername")
                         .HasColumnType("nvarchar(1000)");
@@ -1010,7 +1003,7 @@ namespace CRM.Models.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 4, 0, 13, 54, 102, DateTimeKind.Local).AddTicks(4470));
+                        .HasDefaultValue(new DateTime(2021, 6, 3, 22, 8, 54, 692, DateTimeKind.Local).AddTicks(6343));
 
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
@@ -1182,7 +1175,7 @@ namespace CRM.Models.Migrations
 
                     b.HasOne("CRM.Models.InvoiceDetailFunction", "function")
                         .WithMany()
-                        .HasForeignKey("functionCode");
+                        .HasForeignKey("functioncode");
 
                     b.HasOne("CRM.Models.InvoiceHeader", "header")
                         .WithMany("details")
@@ -1190,7 +1183,7 @@ namespace CRM.Models.Migrations
 
                     b.HasOne("CRM.Models.Unit", "unit")
                         .WithMany()
-                        .HasForeignKey("unitCode");
+                        .HasForeignKey("unitcode");
 
                     b.Navigation("CreateBy");
 

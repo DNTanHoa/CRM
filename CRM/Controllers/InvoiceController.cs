@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using CRM.Models;
 using CRM.Models.Contexts;
+using CRM.Models.Extensions;
 using CRM.Models.Repositories;
+using CRM.RequestModel;
 using CRM.SharedModels.Common;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -15,7 +17,6 @@ namespace CRM.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize]
     public class InvoiceController : ControllerBase
     {
         private readonly IGenericRepository<InvoiceHeader> genericInvoiceHeaderRepository;
@@ -86,6 +87,50 @@ namespace CRM.Controllers
                     });
             }
             return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<CommonApiResponeModel>> CreateInvoice(
+            InvoiceCreateOrUpdateRequestModel requestModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var invoiceHeader = mapper.Map<InvoiceHeader>(requestModel);
+
+                invoiceHeader.SetDefaultValue();
+                
+                foreach(var line in requestModel.details)
+                {
+                    var invoiceDetail = mapper.Map<InvoiceDetail>(line);
+
+                    invoiceDetail.header = invoiceHeader;
+                }
+
+                genericInvoiceHeaderRepository.Insert(invoiceHeader);
+                
+                var result = context.SaveChanges();
+
+                if (result > 0)
+                {
+                    return new CommonApiResponeModel()
+                    .SetResult(new CommonApiResult()
+                    {
+                        messageCode = "success",
+                        message = "Create invoice successfully"
+                    })
+                    .SetData(invoiceHeader);
+                }
+                else
+                {
+                    return new CommonApiResponeModel()
+                    .SetResult(new CommonApiResult()
+                    {
+                        messageCode = "error",
+                        message = "Create failed"
+                    });
+                }
+            }
+            return BadRequest();
         }
     }
 }

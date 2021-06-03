@@ -13,6 +13,7 @@ namespace CRM.Mapper
         public InvoiceMappingProfile()
         {
             CreateMap<InvoiceCreateOrUpdateRequestModel, InvoiceHeader>();
+            CreateMap<InvoiceDetailRequestModel, InvoiceDetail>();
         }
     }
 }

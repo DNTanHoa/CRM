@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRM.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -43,5 +44,6 @@ namespace CRM.RequestModel
         public string currency { get; set; }
         public string currencyInText { get; set; }
         public DateTime? publishDate { get; set; }
+        public IEnumerable<InvoiceDetailRequestModel> details { get; set; }
     }
 }
