@@ -6,6 +6,7 @@ using CRM.Models.Repositories;
 using CRM.RequestModel;
 using CRM.SharedModels.Common;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace CRM.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Authorize]
     public class CustomerController : ControllerBase
     {
         private readonly IGenericRepository<Customer> genericCustomerRepository;

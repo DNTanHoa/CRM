@@ -1,4 +1,5 @@
 using AutoMapper;
+using CRM.Extensions;
 using CRM.Mapper;
 using CRM.Models;
 using CRM.Models.Contexts;
@@ -40,7 +41,9 @@ namespace CRM
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
 
             services.AddFluentValidation();
-            
+
+            services.AddTokenAuthentication(Configuration);
+
             services.AddDbContext<AppDbContext>();
             services.AddTransient<IDbInitializer, DbInitializer>();
 

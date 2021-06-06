@@ -17,6 +17,7 @@ namespace CRM.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Authorize]
     public class InvoiceController : ControllerBase
     {
         private readonly IGenericRepository<InvoiceHeader> genericInvoiceHeaderRepository;

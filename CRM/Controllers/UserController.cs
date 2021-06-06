@@ -6,6 +6,7 @@ using CRM.SharedModels.Atuhenticate;
 using CRM.SharedModels.Common;
 using CRM.SharedUltilities.Extensions;
 using CRM.SharedUltilities.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -30,6 +31,7 @@ namespace CRM.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult<CommonApiResponeModel> Authenticate(AuthenticateRequestModel requestModel)
         {
             if (ModelState.IsValid)
